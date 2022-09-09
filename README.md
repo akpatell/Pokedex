@@ -26,10 +26,12 @@
 * Aimee Vu
 * William Tecchio
 
-## Tasks
-* Extract - Transform - Load
-	- 2 CSV files (<a href="resources/pokemon.csv">pokemon.csv</a> and <a href="resources/df_pokemon.csv">df_pokemon.csv</a>) were extracted in the jupyter notebook
+## General Tasks
+* Extract
+	- 2 CSV files (<a href="resources/pokemon.csv">pokemon.csv</a> and <a href="resources/df_pokemon.csv">df_pokemon.csv</a>) were extracted into Jupyter
+	
     - 1 CSV file (<a href="resources/bridge_pokemon_ability_MAY_HAS.csv">bridge_pokemon_ability_MAY_HAS.csv</a>) was imported directly into postgres.
+    
 * Transform 
 	- Data Cleaning and Normalization
         
@@ -49,5 +51,60 @@
 2. Table 2 - Stats
 3. Table 3 - Abilities
 
+## Table ERD
+<img src="PokeDex_db.png">
 
+This image was generated using <a href="https://www.quickdatabasediagrams.com/">QuickDB</a>.
 
+The code that was used to generate this table schema can be found <a href="QuickDB ERD Code.txt">here, while the generated sql query can be found <a href="pokedex.sql">here</a>.
+
+## Transformation Process
+<p><b>Table 1</b></p>
+<p>For this table, we utilized pokemon.csv and df_pokemon.csv. To start off, we loaded the data from pokemon.csv into a Pandas dataframe. Because the original datasource had extra columns from what was needed for the database, only the necessary columns were pulled.</p>
+
+<p>After analyzing the data, the following issues were identified:</p>
+* Null values in weight column
+* Null values in height column
+* Null values in type2 column
+
+<p>The original database schema sets up the table to not allow null values, but upon further discussion, it was determined that for future (hypothetical) analysis, null values were necessary for height and weight. These were left as null rather than 0.0 because 0.0 is still a value that would provide inaccurate results for any analysis.</p>
+
+<p>The last column, evolvesFrom, derived from the second CSV file, df_pokemon. Because of this, the column is initially left blank during the dataframe setup. It was later populated using the python loc function to match the name from the dataframe to the name in the second CSV file.</p>
+
+<p>This process resulted in a key error, which was resolved using the try-except statement. In addition, to remove any extra columns, the national dex number was set as the index.</p>
+
+<p><b>Table 2</b></p>
+<p>This table utilizes df_pokemon.csv. Like the first CSV file, this data source also contained more columns than were necessary for the table.</p>
+
+<p>After the data is loaded into a dataframe, the issues that were identified included:</p>
+* Base Stat are float values
+* Health Points are float values
+* Attack are float values
+* Defense are float values
+* Special Attack are float values
+* Special Defense are float values
+* Speed are float values
+* Extra rows that are not found in Table 1
+* Rows with null values
+
+<p>After reviewing the CSV file in Excel, the only rows that contained null values were rows that had no data altogether so the final decision was to exclude them altogether.</p>
+
+<p>Because Table 2 has a dependency on Table 1 through the foreign key of national dex number, extra rows that were not found in Table 1 caused the data to fail. After analyzing the data through Excel, the final solution was to select the rows that had a dex number of 801 or lower. This is dex number is the last number in Table 1, so using this condition guaranteed that the rows we load into Table 2 exist in Table 1.</p>
+
+<p>The columns with float values posed an issue because the table schema sets up the columns to only allow integers. Rather than changing the table schema, the columns were converted to an integer using the astype function in Python.</p>
+
+<p><b>Table 3</b></p>
+<p>The last table utilizes the file bridge_pokemon_ability_MAY_HAS.csv. To provide a different process of ETL, this file is imported directly into Postgres via the built-in import function.</p>
+
+<p>From there, three queries are ran to do the following:</p>
+
+1. List all Pokemon and their respective abilities using a join on Pokedex and Abilities tables
+<img src="Query1">
+
+2. List of Pokemon name and number of abilities they have using the join on Pokedex and Abilities tables and grouped them by name
+<img src="Query2">
+
+3. List of pokemon ablities and number of pokemon using it using the join on Pokedex and Abilities tables and grouped them by ability
+<img src="Query3">
+
+<p>The queries can be found <a href="PokeDexQueries.sql">here</a>.</p>
