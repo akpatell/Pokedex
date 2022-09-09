@@ -57,7 +57,7 @@
 
 This image was generated using <a href="https://www.quickdatabasediagrams.com/">QuickDB</a>.
 
-The code that was used to generate this table schema can be found <a href="QuickDB ERD Code.txt">here, while the generated sql query can be found <a href="pokedex.sql">here</a>.
+The code that was used to generate this table schema can be found <a href="QuickDB ERD Code.txt">here</a>, while the generated sql query can be found <a href="pokedex.sql">here</a>.
 
 ## Transformation Process
 ### Table 1: Pokedex
