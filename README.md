@@ -62,7 +62,7 @@ The code that was used to generate this table schema can be found <a href="Quick
 
 ## Transformation Process
 ### Table 1: Pokedex
-<p>For this table, we utilized pokemon.csv and df_pokemon.csv. To start off, we loaded the data from pokemon.csv into a Pandas dataframe. Because the original datasource had extra columns from what was needed for the database, only the necessary columns were pulled.</p>
+<p>For this table, we utilized pokemon.csv and df_pokemon.csv. To start off, the data is extracted from pokemon.csv into a Pandas dataframe. Because the original datasource had extra columns from what was needed for the database, only the necessary columns were pulled.</p>
 
 <p>After analyzing the data, the following issues were identified:</p>
 
