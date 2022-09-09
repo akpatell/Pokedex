@@ -3,11 +3,13 @@
 <p> Create a database of Pokemon characters with “biological” data, as well as competitive data (such as popular moves, held items, etc), in order to please both the casual enjoyer as well as the competitive player, and even to help those looking to break into the metagame in team building. This will be done by creating a set of tables with information on the relevant Pokemon.</p>
 
 ## System Requirements
-* jupyter notebook dictionaries
+* Jupyter notebook 
+* Python dictionaries
     - sqlalchemy
     - psycopg2
-    - db_pw
     - pandas
+* Misc. files
+	- db_pw (python file with database password)
 
 ## Resources
 * <p><a href="https://github.com/akpatell/project_2_poke_decks.git ">GitHub Repository:</a></p>
