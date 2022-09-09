@@ -2,8 +2,8 @@
 ## Project Summary
 <p> Create a database of Pokemon characters with “biological” data, as well as competitive data (such as popular moves, held items, etc), in order to please both the casual enjoyer as well as the competitive player, and even to help those looking to break into the metagame in team building. This will be done by creating a set of tables with information on the relevant Pokemon.</p>
 
-##System Requirements
-*jupyter notebook dictionaries
+## System Requirements
+* jupyter notebook dictionaries
     - sqlalchemy
     - psycopg2
     - db_pw
@@ -34,7 +34,7 @@
 	- Data Cleaning and Normalization
         
 	- Build relationship within different datasets
-      Primary keys used to build relationships were nationalDexNumber and name
+    - Primary keys used to build relationships were nationalDexNumber and name
       
 	- Define and build key statistics 
       
