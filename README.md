@@ -59,7 +59,7 @@ This image was generated using <a href="https://www.quickdatabasediagrams.com/">
 The code that was used to generate this table schema can be found <a href="QuickDB ERD Code.txt">here, while the generated sql query can be found <a href="pokedex.sql">here</a>.
 
 ## Transformation Process
-<p><b>Table 1</b></p>
+### Table 1: Pokedex
 <p>For this table, we utilized pokemon.csv and df_pokemon.csv. To start off, we loaded the data from pokemon.csv into a Pandas dataframe. Because the original datasource had extra columns from what was needed for the database, only the necessary columns were pulled.</p>
 
 <p>After analyzing the data, the following issues were identified:</p>
@@ -74,7 +74,7 @@ The code that was used to generate this table schema can be found <a href="Quick
 
 <p>This process resulted in a key error, which was resolved using the try-except statement. In addition, to remove any extra columns, the national dex number was set as the index.</p>
 
-<p><b>Table 2</b></p>
+### Table 2: Stats
 <p>This table utilizes df_pokemon.csv. Like the first CSV file, this data source also contained more columns than were necessary for the table.</p>
 
 <p>After the data is loaded into a dataframe, the issues that were identified included:</p>
@@ -95,18 +95,18 @@ The code that was used to generate this table schema can be found <a href="Quick
 
 <p>The columns with float values posed an issue because the table schema sets up the columns to only allow integers. Rather than changing the table schema, the columns were converted to an integer using the astype function in Python.</p>
 
-<p><b>Table 3</b></p>
+### Table 3: Abilities
 <p>The last table utilizes the file bridge_pokemon_ability_MAY_HAS.csv. To provide a different process of ETL, this file is imported directly into Postgres via the built-in import function.</p>
 
 <p>From there, three queries are ran to do the following:</p>
 
 1. List all Pokemon and their respective abilities using a join on Pokedex and Abilities tables
-<img src="Query1">
+<img src="Query1.png">
 
 2. List of Pokemon name and number of abilities they have using the join on Pokedex and Abilities tables and grouped them by name
-<img src="Query2">
+<img src="Query2.png">
 
 3. List of pokemon ablities and number of pokemon using it using the join on Pokedex and Abilities tables and grouped them by ability
-<img src="Query3">
+<img src="Query3.png">
 
 <p>The queries can be found <a href="PokeDexQueries.sql">here</a>.</p>
