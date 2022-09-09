@@ -12,10 +12,9 @@
 	- db_pw (python file with database password)
 
 ## Resources
-* <p><a href="https://github.com/akpatell/project_2_poke_decks.git ">GitHub Repository:</a></p>
+* <p><a href="https://github.com/akpatell/project_2_poke_decks.git ">GitHub Repository</a></p>
 * Database: PostgreSQL/pgAdmin
 * Datasets:
-	- <a href="https://www.kaggle.com/datasets/notgibs/smogon-6v6-pokemon-tiers">Smogon 6v6 Pokemon Tiers 29122016</a>
 	- <a href="https://www.kaggle.com/datasets/giorgiocarbone/complete-competitive-pokmon-datasets-may-2022?select=df_items.csv">Complete Competitive Pokémon Database (May 2022) 08072022</a>
 	- <a href="https://www.kaggle.com/datasets/rounakbanik/pokemon">The Complete Pokemon Dataset 2017</a>
 
