@@ -28,8 +28,8 @@
 
 ## Tasks
 * Extract - Transform - Load
-	- 2 CSV files were extracted in the jupyter notebook
-    - 1 CSV file was imported directly into postgres
+	- 2 CSV files (<a href="resources/pokemon.csv">pokemon.csv</a> and <a href="resources/df_pokemon.csv">df_pokemon.csv</a>) were extracted in the jupyter notebook
+    - 1 CSV file (<a href="resources/bridge_pokemon_ability_MAY_HAS.csv">bridge_pokemon_ability_MAY_HAS.csv</a>) was imported directly into postgres.
 * Transform 
 	- Data Cleaning and Normalization
         
