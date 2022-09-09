@@ -72,7 +72,7 @@ The code that was used to generate this table schema can be found <a href="Quick
 
 <p>The original database schema sets up the table to not allow null values, but upon further discussion, it was determined that for future (hypothetical) analysis, null values were necessary for height and weight. These were left as null rather than 0.0 because 0.0 is still a value that would provide inaccurate results for any analysis.</p>
 
-<p>The last column, evolvesFrom, derived from the second CSV file, df_pokemon. Because of this, the column is initially left blank during the dataframe setup. It was later populated using the python loc function to match the name from the dataframe to the name in the second CSV file.</p>
+<p>The last column, evolvesFrom, derives from the second CSV file, df_pokemon. Because of this, the column is initially left blank during the dataframe setup. It was later populated using the python loc function to match the name from the dataframe to the name in the second CSV file.</p>
 
 <p>This process resulted in a key error, which was resolved using the try-except statement. In addition, to remove any extra columns, the national dex number was set as the index.</p>
 
@@ -93,7 +93,7 @@ The code that was used to generate this table schema can be found <a href="Quick
 
 <p>After reviewing the CSV file in Excel, the only rows that contained null values were rows that had no data altogether so the final decision was to exclude them altogether.</p>
 
-<p>Because Table 2 has a dependency on Table 1 through the foreign key of national dex number, extra rows that were not found in Table 1 caused the data to fail. After analyzing the data through Excel, the final solution was to select the rows that had a dex number of 801 or lower. This is dex number is the last number in Table 1, so using this condition guaranteed that the rows we load into Table 2 exist in Table 1.</p>
+<p>Because Table 2 has a dependency on Table 1 through the foreign key of national dex number, extra rows that were not found in Table 1 caused the data to fail. After analyzing the data through Excel, the final solution was to select the rows that had a dex number of 801 or lower. This dex number is the last number in Table 1, so using this condition guaranteed that the rows we load into Table 2 exist in Table 1.</p>
 
 <p>The columns with float values posed an issue because the table schema sets up the columns to only allow integers. Rather than changing the table schema, the columns were converted to an integer using the astype function in Python.</p>
 
