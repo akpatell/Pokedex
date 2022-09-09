@@ -63,6 +63,7 @@ The code that was used to generate this table schema can be found <a href="Quick
 <p>For this table, we utilized pokemon.csv and df_pokemon.csv. To start off, we loaded the data from pokemon.csv into a Pandas dataframe. Because the original datasource had extra columns from what was needed for the database, only the necessary columns were pulled.</p>
 
 <p>After analyzing the data, the following issues were identified:</p>
+
 * Null values in weight column
 * Null values in height column
 * Null values in type2 column
@@ -77,6 +78,7 @@ The code that was used to generate this table schema can be found <a href="Quick
 <p>This table utilizes df_pokemon.csv. Like the first CSV file, this data source also contained more columns than were necessary for the table.</p>
 
 <p>After the data is loaded into a dataframe, the issues that were identified included:</p>
+
 * Base Stat are float values
 * Health Points are float values
 * Attack are float values
